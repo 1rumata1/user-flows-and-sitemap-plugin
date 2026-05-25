@@ -1,0 +1,7 @@
+{
+  "name": "user-journey-mapping",
+  "version": "1.0.0",
+  "description": "Build user flow diagrams, customer journey maps, sitemaps, and screen flow diagrams in Figma Design and FigJam from project docs, video walkthroughs, live app URLs, or verbal descriptions. Options 1-3 use design system tokens in Figma Design. Option 4 uses Mermaid in FigJam.",
+  "license": "UNLICENSED",
+  "keywords": ["figma", "user-flow", "journey-map", "ux", "diagram", "design-system", "sitemap", "screen-flow", "wireflow", "figjam", "screenshot-flow"]
+}

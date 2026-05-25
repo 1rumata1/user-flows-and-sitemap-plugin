@@ -1,0 +1,32 @@
+{
+  "skill_name": "figma-ux-flow-builder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I have a PRD for our new checkout feature. Here's the gist: users can browse products, add to cart, go to checkout (login or guest), enter shipping info, choose payment method (credit card or PayPal), review order, and confirm. If payment fails they go back to payment. Can you create a user flow for this in Figma?",
+      "expected_output": "Should extract ~10-12 step flow with decision points for login/guest and payment method, include error path for payment failure, confirm the flow with user, then render in Figma using use_figma. Must use design system variable keys (neutral/150 for step fills, blue/400 for accent, neutral/300 for connectors) via bindColor(). Nodes should be 200x48px. Text must have library text styles applied. Validation should show 100% on strokes/lines/polygons and 100% on text styles. White text and error node fills are expected unbound.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I walked through our app and here's what happens: The user lands on a dashboard showing their projects. They can click a project to open it, which takes them to an editor. In the editor they can add pages, edit content, and preview. From preview they can publish. After publishing they see a success screen with a share link. Can you make a journey map that shows this whole experience including how the user feels at each step?",
+      "expected_output": "Should identify this as a journey map request (emotional states mentioned), extract 5-6 phases, ask clarifying questions about persona and touchpoints, then build a structured grid journey map in Figma with emotional curve, pain points, and opportunities. Must use design system token keys for all cell backgrounds and design system text styles for typography.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Here's our signup flow from the codebase routes: / -> /signup -> /verify-email -> /onboarding/step-1 -> /onboarding/step-2 -> /onboarding/step-3 -> /dashboard. The signup has validation for email format and password strength. Verify-email has a resend option and a timeout after 24hrs. Onboarding step 1 is role selection (developer, designer, PM), step 2 is team creation (optional, can skip), step 3 is invite teammates (optional, can skip). Build me a detailed user flow in Figma with all the branches and error states.",
+      "expected_output": "Should extract a detailed flow with multiple decision branches (validation errors, resend email, role selection branching, skip options for team/invite), include error states for validation and timeout. Must use buildNode() helper with 200x48px nodes. Decision nodes use blue border to distinguish from step nodes (NOT rotated diamonds). Branch columns spread horizontally with proper merge connectors. Screenshots placed in dedicated right column if captured. Connectors use vArrow/hArrow patterns with design system NEUTRAL_300 binding."
+    },
+    {
+      "id": 4,
+      "prompt": "Can you create a sitemap for our application? The main sections are: Organization (with Profile, Members, Purchases, Store Reports), Products (each product has App Store, Online Services with sub-sections like Achievements, Leaderboards, Stats, and Analytics), and Tools (Engine, Viewer, Scanner, Kids Web Services). There's also a global nav with Overview, Home, Support, Forums, Documentation, and Learning.",
+      "expected_output": "Should identify this as a sitemap/IA request, present an indented tree structure with page types (LANDING, DASHBOARD, LIST, SETTINGS, EXTERNAL), confirm with user, then render as a top-down hierarchical tree in Figma. Root node as pill, section nodes with blue border, page nodes as standard rectangles. Must use createVector connectors with ARROW_EQUILATERAL. Section groups optionally color-coded with subtle backgrounds. Page type annotations below nodes in #666666."
+    },
+    {
+      "id": 5,
+      "prompt": "Can you create a screen flow for our achievement creation process? Here's the URL: https://app.example.com. Navigate to a product's Achievements page. The flow starts at the Achievements list, user clicks Create achievement, picks a creation type (with stat, without stat, or bulk import), fills in the details across a 2-step wizard, and lands on the achievement detail view. I want actual screenshots in FigJam with arrows showing the navigation.",
+      "expected_output": "Should identify this as a Screen Flow request (Option 4) for FigJam. Must capture screenshots via Playwright from the live URL. Must create a FigJam file via create_new_file({ editorType: 'figjam' }). Must upload screenshots via upload_assets. Must load figma-use AND figma-use-figjam skills. Must use use_figma to position screenshots left-to-right, create Connectors between them with navigation labels, add Stickies for screen names. Decision point at creation type should branch vertically. No design system token binding, no validation audit. Visual check that all screenshots are connected."
+    }
+  ]
+}
