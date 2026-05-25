@@ -1,7 +1,7 @@
 # Design Tokens — UUI Loveship Theme Reference
 
 > Source of truth for all styling in flow diagrams and journey maps.
-> This plugin uses the **EPAM UUI Loveship** theme ([https://uui.epam.com/?theme=loveship](https://uui.epam.com/?theme=loveship)) for look and feel.
+> This plugin uses the **UUI Loveship** theme for look and feel.
 > Colors are applied as **raw hex values** from the Loveship palette — NOT from a Figma design system library.
 > No `bindColor()` or `importVariableByKeyAsync()` is needed. Set fills/strokes directly.
 
@@ -9,7 +9,7 @@
 
 ## Styling Approach
 
-This plugin does **NOT** use Figma design system libraries (no EDS, no library variable binding). Instead, all colors, typography, and spacing follow the **UUI Loveship** theme specification. Colors are applied directly as solid hex fills.
+This plugin does **NOT** use Figma design system libraries or library variable binding. Instead, all colors, typography, and spacing follow the **UUI Loveship** theme specification. Colors are applied directly as solid hex fills.
 
 **Why:** The Loveship theme provides a complete, self-contained design language. Using raw hex values from its palette keeps diagrams portable (no library dependencies) and visually consistent with UUI-based products.
 
@@ -284,20 +284,8 @@ var SHADOW_2 = [
 
 ---
 
-## Migration Notes (from EDS)
+## Key Design Decisions
 
-If upgrading from the previous EDS-based styling:
-
-| Old (EDS) | New (Loveship) |
-|---|---|
-| `bindColor(node, "fills", key, hex)` | `setFill(node, hex)` |
-| `bindColor(node, "strokes", key, hex)` | `setStroke(node, hex, width)` |
-| `makeText(parent, content, styleKey, hex)` | `makeText(parent, content, fontSize, fontWeight, hex)` |
-| Dark background (`#0e0e0e`) | Light background (`#FFFFFF`) |
-| White text on dark | Dark text (`#303240`) on light |
-| Inter font family | Source Sans Pro font family |
-| EDS library variable keys | Raw hex from Loveship palette |
-| `importStyleByKeyAsync()` | Direct `fontSize` + `fontName` |
-| `search_design_system()` for tokens | Use `C.` constants from palette above |
-
-**Key visual change:** The Loveship theme is a **light theme** by default. Root frames use white (`#FFFFFF`) backgrounds with dark text (`#303240`). This is the opposite of the previous dark-mode EDS styling.
+- **Light theme by default.** Root frames use white (`#FFFFFF`) backgrounds with dark text (`#303240`).
+- **No library dependency.** All colors are raw hex from the Loveship palette — no `importVariableByKeyAsync()` or `importStyleByKeyAsync()`.
+- **Self-contained.** The `C = { ... }` palette object and `setFill()`/`setStroke()`/`makeText()` helpers are pasted into every `use_figma` call. No external dependencies.

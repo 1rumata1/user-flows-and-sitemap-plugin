@@ -477,7 +477,7 @@ root.resize(maxX - minX + PAD * 2, maxY - minY + PAD * 2);
 14. **Show error paths.** Every action that can fail needs a failure branch.
 15. **One direction.** Top-to-bottom or left-to-right, not both.
 16. **Label every branch.** Yes/No, Success/Failure on decision arrows.
-17. **Validate before presenting.** Take a screenshot after building to verify all colors match the Loveship palette, text is readable (dark on light), and layout is clean. Check that no fills use old dark-mode EDS colors.
+17. **Validate before presenting.** Take a screenshot after building to verify all colors match the Loveship palette, text is readable (dark on light), and layout is clean. Check that no fills use dark-mode colors.
 18. **Static only.** No components with variants, no prototyping, no hover states. All styling uses raw Loveship palette hex values.
 19. **No Figma library dependency.** Do NOT call `search_design_system`, `get_libraries`, `importVariableByKeyAsync`, or `importStyleByKeyAsync`. All tokens are self-contained in the `C = { ... }` palette and `makeText()` function from `design-tokens.md`.
 52. **Sitemaps MUST be detailed by default — never produce a shallow top-level-only sitemap.** When the user requests a sitemap, the output must include AT MINIMUM 3 levels of depth (Root → Sections → Sub-pages → Notable children). A sitemap that only lists top-level nav items is a navigation bar, not a sitemap. During extraction:
