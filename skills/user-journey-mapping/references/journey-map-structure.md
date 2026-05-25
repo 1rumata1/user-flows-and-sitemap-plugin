@@ -219,4 +219,4 @@ img.cornerRadius = 4;
 img.layoutSizingHorizontal = "FILL";
 ```
 
-**This 2-call pattern is PROVEN** across Amazon Product Review (6 phases, 8 rows, no screenshots) and Amazon Checkout (6 phases, 9 rows, 5 screenshots). It replaces the old row-by-row approach.
+**This 2-call pattern is PROVEN** across multiple journey maps (6 phases, 8-9 rows, with and without screenshots). It replaces the old row-by-row approach.

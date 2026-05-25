@@ -434,7 +434,7 @@ Screenshots go in a **dedicated column** to the right of the entire flow diagram
 - Resize root to fit all content
 - Return total node count
 
-**This 2-call pattern is PROVEN** across Rozetka (16 nodes, 4 decisions) and Amazon (17 nodes, 5 decisions). It replaces the old "max 10 nodes per call" guidance.
+**This 2-call pattern is PROVEN** across multiple real-world flows (16-17 nodes, 4-5 decisions). It replaces the old "max 10 nodes per call" guidance.
 
 ---
 

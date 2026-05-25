@@ -134,7 +134,7 @@ async function subSec(parent, name, indent) {
 - **Level 3**: Notable sub-sub-categories, tabs, and nested pages (discovered by exploring each L2 page)
 - **External links**: All outbound links (documentation, support portals, partner sites)
 
-**For e-commerce sites (like Rozetka, Amazon, eBay):**
+**For e-commerce sites:**
 - Map ALL top-level product categories from the mega-menu or category navigation
 - Drill into each category to list its sub-categories (e.g., "Electronics → Laptops, Phones, TVs, Audio")
 - Note category page types (LIST, FILTER, DETAIL)
@@ -235,7 +235,7 @@ Confirm with user before rendering.
 - Too few sections per call = too many API calls, slow and hits rate limits
 - Too many sections per call = script too long, risk of timeout
 
-**Proven batch pattern from Rozetka (24 sections, 164 nodes, 4 calls):**
+**Proven batch pattern (24 sections, 164 nodes, 4 calls):**
 ```
 Call 1: Root frame + title + 3 sections (35 nodes) — includes helpers, palette, font loading
 Call 2: 6 sections (44 nodes) — reuses helpers pattern

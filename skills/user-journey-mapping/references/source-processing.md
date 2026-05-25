@@ -54,15 +54,15 @@ When you navigate to a URL and get redirected to a login page (sign-in form, OAu
 6. **Check the post-login URL (Rule #66).** Most sites redirect to their homepage after login, NOT to the intended page. After user confirms:
    - Check `page.url()` — if it's the homepage or unexpected, navigate back manually
    - For checkout flows: go to cart page first, then click "Proceed to Checkout" again
-   - For review flows: navigate directly to `review/create-review?asin=X`
+   - For review flows: navigate directly to the review creation URL
    - Verify you're on the intended authenticated page before capturing
    ```javascript
    // After user confirms login:
    var currentUrl = page.url();
-   if (currentUrl.includes('/?') || currentUrl === 'https://www.amazon.com/') {
+   if (currentUrl.includes('/?') || currentUrl.endsWith('.com/')) {
      // Redirected to homepage — navigate back to intended page
-     await page.goto('https://www.amazon.com/gp/cart/view.html');
-     // Then proceed through checkout again
+     await page.goto(intendedUrl);
+     // For checkout flows: go to cart page, then proceed through checkout again
    }
    ```
 7. **Resume capturing** from where you left off. Also capture the sign-in page itself as a screenshot — it IS a real screen in the journey (Rule #67).
@@ -88,7 +88,7 @@ browser_evaluate(() => {
   document.querySelectorAll('a').forEach(a => {
     const href = a.href;
     const text = a.textContent.trim();
-    // Adapt the URL pattern for each site (e.g., /c\d+/ for Rozetka, /category/ for others)
+    // Adapt the URL pattern for each site (e.g., /c\d+/ for category IDs, /category/ for slugs)
     if (text && href && href.match(/\/c\d+\//) && text.length > 2 && text.length < 80) {
       cats.push({ text, href });
     }
